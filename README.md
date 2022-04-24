@@ -5,12 +5,15 @@ Currently only supports a timer / cooldown cache.
 
 ## Example
 ```rs
-pub use mincache::timecache;
+pub use mincache::timed;
 
 // "fmt" is what you'd put after core::time::Duration::from_<>. E.g. "secs", "millis", "nanos", etc.
-#[timecache(time = 5000, fmt = "secs")]
-pub fn xyz(x: i32) -> std::time::Instant {
+#[timed(t = 5000, fmt = "millis"/*, reference = true*/)]
+pub fn func(x: i32) -> std::time::Instant {
 	println!("This will print once {x}");
+
+	// Reference non-cached self.
+	// inner_func(x);
 
 	// This value will be cloned each time this is called before the cooldown is over
 	// If you want to instead pass a reference, look into mincache/tests/ref.rs
@@ -18,11 +21,10 @@ pub fn xyz(x: i32) -> std::time::Instant {
 	std::time::Instant::now()
 }
 
-#[test]
 fn main() {
 	// Will call the function a single time.
 	for _ in 0..1000000 {
-		let xyz = xyz(55);
+		let _xyz = func(55);
 	}
 }
 ```

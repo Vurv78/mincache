@@ -8,4 +8,4 @@ license-file = "../LICENSE.md"
 repository = "https://github.com/Vurv78/mincache"
 
 [dependencies]
-mincache-impl = { path = "../mincache-impl" }
+mincache-impl = { version = "0.1" }

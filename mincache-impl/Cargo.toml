@@ -1,0 +1,19 @@
+[package]
+name = "mincache-impl"
+description = "Procedural macro implementation for mincache"
+keywords = ["cache", "memoize", "function", "minimal"]
+categories = ["caching"]
+version = "0.1.0"
+edition = "2021"
+readme = "../README.md"
+license-file = "../LICENSE.md"
+repository = "https://github.com/Vurv78/mincache"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+darling = "0.14"
+proc-macro2 = "1.0.3"
+quote = "1.0.1"
+syn = { version = "1.0", features = ["full"] }

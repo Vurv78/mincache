@@ -1,0 +1,11 @@
+[package]
+name = "mincache"
+description = "Minimal function return caching crate"
+version = "0.1.0"
+edition = "2021"
+readme = "../README.md"
+license-file = "../LICENSE.md"
+repository = "https://github.com/Vurv78/mincache"
+
+[dependencies]
+mincache-impl = { path = "../mincache-impl" }
